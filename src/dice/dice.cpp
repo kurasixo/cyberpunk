@@ -1,67 +1,59 @@
+#include "dice.h"
 #include <cstdlib>
 #include <ctime>
 #include <vector>
 
 
-template <typename T>
-class Dice {
-  private:
-    std::vector<T>* m_ArrayPtr;
+Dice::~Dice() {
+  delete m_ArrayPtr;
+  m_ArrayPtr = nullptr;
+}
 
-  public:
-    Dice() = default;
+short unsigned int Dice::roll() {
+  std::srand((unsigned) std::time(NULL));
+  return rand() % 10;
+}
 
-    ~Dice() {
-      delete m_ArrayPtr;
-      m_ArrayPtr = nullptr;
-    }
+ T Dice::roll(const T range) {
+  std::srand((unsigned) std::time(NULL));
+  return rand() % range;
+}
 
-    T roll() {
-      std::srand((unsigned) std::time(NULL));
-      return rand() % 10;
-    }
+T Dice::roll(const T from, const T to) {
+  std::srand((unsigned) std::time(NULL));
+  return from + (rand() % (from - to));
+}
 
-    T roll(const T range) {
-      std::srand((unsigned) std::time(NULL));
-      return rand() % range;
-    }
+std::vector<T>* Dice::rollMany(const T amount) {
+  m_ArrayPtr = new std::vector<T>;
 
-    T roll(const T from, const T to) {
-      std::srand((unsigned) std::time(NULL));
-      return from + (rand() % (from - to));
-    }
+  for (size_t i = 0; i < amount; ++i) {
+    m_ArrayPtr -> push_back(this->roll());
+  }
 
-    std::vector<T>* rollMany(const T amount) {
-      m_ArrayPtr = new std::vector<T>;
+  return m_ArrayPtr;
+}
 
-      for (size_t i = 0; i < amount; ++i) {
-        m_ArrayPtr -> push_back(this->roll());
-      }
+std::vector<T>* Dice::rollMany(
+  const T amount, const T range
+) {
+  m_ArrayPtr = new std::vector<T>;
 
-      return m_ArrayPtr;
-    }
+  for (size_t i = 0; i < amount; ++i) {
+    m_ArrayPtr -> push_back(this->roll(range));
+  }
 
-    std::vector<T>* rollMany(
-      const T amount, const T range
-    ) {
-      m_ArrayPtr = new std::vector<T>;
+  return m_ArrayPtr;
+}
 
-      for (size_t i = 0; i < amount; ++i) {
-        m_ArrayPtr -> push_back(this->roll(range));
-      }
+std::vector<T>* Dice::rollMany(
+  const T amount, const T from, const T to
+) {
+  m_ArrayPtr = new std::vector<T>;
 
-      return m_ArrayPtr;
-    }
+  for (size_t i = 0; i < amount; ++i) {
+    m_ArrayPtr -> push_back(this->roll(from, to));
+  }
 
-    std::vector<T>* rollMany(
-      const T amount, const T from, const T to
-    ) {
-      m_ArrayPtr = new std::vector<T>;
-
-      for (size_t i = 0; i < amount; ++i) {
-        m_ArrayPtr -> push_back(this->roll(from, to));
-      }
-
-      return m_ArrayPtr;
-    }
-};
+  return m_ArrayPtr;
+}

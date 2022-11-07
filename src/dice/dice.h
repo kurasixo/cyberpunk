@@ -4,17 +4,15 @@
 #include <vector>
 #include <concepts>
 
-template <typename T>
-concept TinyInt = std::same_as<T, unsigned short int>;
 
-template <TinyInt T>
+using T = short unsigned int;
 class Dice final {
   private:
-    std::vector<T>* m_ArrayPtr;
+    std::vector<short unsigned int>* m_ArrayPtr;
 
   public:
-    Dice() {}
-    ~Dice() {}
+    Dice() = default;
+    ~Dice();
 
     T roll();
     T roll(const T range);
@@ -22,10 +20,7 @@ class Dice final {
 
     std::vector<T>* rollMany(const T amount);
     std::vector<T>* rollMany(const T amount, const T range);
-    std::vector<T>* rollMany(
-      const T amount,
-      const T from,
-      const T to);
+    std::vector<T>* rollMany(const T amount, const T from, const T to);
 };
 
 #endif
