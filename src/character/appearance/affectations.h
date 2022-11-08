@@ -16,6 +16,7 @@ class Affection {
 class Affections {
   public:
     Affections();
+    ~Affections();
 
     std::vector<Affection*> m_affections;
 };

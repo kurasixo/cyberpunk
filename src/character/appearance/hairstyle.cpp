@@ -33,3 +33,10 @@ HairStyles::HairStyles() {
     LongStraight
   };
 }
+
+HairStyles::~HairStyles() {
+  for (HairStyle* ptr: m_hairStyles) {
+    delete ptr;
+    ptr = nullptr;
+  }
+}

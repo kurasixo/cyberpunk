@@ -3,7 +3,6 @@
 #include <vector>
 
 #include "character.h"
-#include "./backstory/backstory.h"
 
 
 Character::Character(
@@ -27,7 +26,12 @@ Character::Character(
   this->generateRandomHairStyle(dice, hairStyles);
   this->generateRandomAffections(dice, affections);
   this->generateRandomClothess(dice, clothesItems);
+
   this->generateRandomCharecterBackStory(dice);
+  this->generateRandomCharecterMotivation(dice);
+
+  this->generateRandomEnemy(dice);
+  this->generateRandomFriend(dice);
 }
 
 Character::Character(
@@ -45,6 +49,20 @@ Character::Character(
 
   this->setStats(allStats, statsPoints);
   this->setAbilities(charecterAbilities, abilitiesPoints);
+}
+
+Character::~Character() {
+  delete m_friend;
+  m_friend = nullptr;
+
+  delete m_enemy;
+  m_enemy = nullptr;
+
+  delete m_motivation;
+  m_motivation = nullptr;
+
+  delete m_backstory;
+  m_backstory = nullptr;
 }
 
 void Character::setAbilities(
@@ -71,30 +89,41 @@ void Character::setStats(
 
 // temp
 void Character::generateRandomName(Dice* dice) {
-  std::vector<std::string> names = { "budz", "pain", "konan", "nagato", "itachi", "tobi", "madara", "naruto", "danzou", "kakashi" };
+  std::vector<std::string> names = {
+    "randName1",
+    "randName2",
+    "randName3",
+    "randName4",
+    "randName5",
+    "randName6",
+    "randName7",
+    "randName8",
+    "randName9",
+    "randName10"
+  };
 
-  m_name = names.at(dice->roll(10));
+  m_name = names.at(dice->roll(names.size()));
 }
 
 void Character::generateRandomCharecterClass(Dice* dice, CharacterClasses* charClasses) {
-  m_charecterClass = charClasses->m_allCharacterClasses.at(dice->roll(0, charClasses->m_allCharacterClasses.size()));
+  m_charecterClass = charClasses->m_allCharacterClasses.at(dice->roll(charClasses->m_allCharacterClasses.size()));
 };
 
 // add preset. e.g. combat, peaceful
 void Character::generateRandomCharecterStats(Dice* dice, CharacterStats* charStats) {
-  this->setStats(&charStats->m_allStats, dice->rollMany(charStats->m_allStats.size(), 3, 7));
+  this->setStats(&charStats->m_allStats, dice->rollMany(charStats->m_allStats.size(), 3, 8));
 };
 
 // add preset. e.g. super cool char, med cool char, hero?
 void Character::generateRandomCharecterAbilities(Dice* dice, Abilities* charAbilities) {
-  std::vector<Ability*> chosenAbilities;
-  auto chosenAbilitiesIndexes = dice->rollMany(9, 0, charAbilities->m_allNonUniqueAbilites.size());
+  std::vector<Ability*>* chosenAbilities;
+  auto chosenAbilitiesIndexes = dice->rollMany(9, charAbilities->m_allNonUniqueAbilites.size());
 
   for (size_t i = 0; i < 9; ++i) {
-    chosenAbilities.push_back(charAbilities->m_allNonUniqueAbilites.at(chosenAbilitiesIndexes->at(i)));
+    chosenAbilities->push_back(charAbilities->m_allNonUniqueAbilites.at(chosenAbilitiesIndexes->at(i)));
   }
 
-  this->setAbilities(&chosenAbilities, dice->rollMany(9, 1, 12));
+  this->setAbilities(chosenAbilities, dice->rollMany(9, 1, 12));
 };
 
 void Character::generateRandomRace(Dice* dice, Races* races) {
@@ -115,15 +144,25 @@ void Character::generateRandomClothess(Dice* dice, ClothesItems* clothesItems) {
 
 void Character::generateRandomCharecterBackStory(Dice* dice) {
   BackStory* bs = new BackStory(dice);
-  m_backstory = bs->m_backstory;
+  m_backstory = bs;
+};
 
-  delete bs;
-  bs = nullptr;
+void Character::generateRandomCharecterMotivation(Dice* dice) {
+  Motivation* motivation = new Motivation(dice);
+  m_motivation = motivation;
+};
+
+void Character::generateRandomEnemy(Dice* dice) {
+  m_enemy = new Enemy(dice);
+};
+
+void Character::generateRandomFriend(Dice* dice) {
+  m_friend = new Friend(dice);
 };
 
 void Character::print() {
-  std::cout << "Name: " << this->m_name << std::endl;
-  std::cout << "Class: " << this->m_charecterClass->m_name << std::endl;
+  std::cout << "Name: " << m_name << std::endl;
+  std::cout << "Class: " << m_charecterClass->m_name << std::endl;
 
   std::cout << "Stats:";
   for (auto pair: m_charecterStatsWithPoints) {
@@ -140,12 +179,27 @@ void Character::print() {
   std::cout << "--------------------------------------------------" << std::endl;
 
   std::cout << "Appearance" << std::endl;
-  std::cout << "Race: " << this->m_race->m_name << std::endl;
-  std::cout << "Hair Style: " << this->m_hairstyle->m_name << std::endl;
-  std::cout << "Affections: " << this->m_affection->m_name << std::endl;
-  std::cout << "Clothes: " << this->m_clothes->m_name << std::endl;
+  std::cout << "Race: " << m_race->m_name << std::endl;
+  std::cout << "Hair Style: " << m_hairstyle->m_name << std::endl;
+  std::cout << "Affections: " << m_affection->m_name << std::endl;
+  std::cout << "Clothes: " << m_clothes->m_name << std::endl;
   std::cout << "--------------------------------------------------" << std::endl;
-  std::cout << "Backstory: " << this->m_backstory << std::endl;
+
+  std::cout << "Backstory: " << m_backstory->m_backstory << std::endl;
+  std::cout << "--------------------------------------------------" << std::endl;
+
+  std::cout << "Motivation: " << m_motivation->m_motivation << std::endl;
+  std::cout << "--------------------------------------------------" << std::endl;
+
+  std::cout << "Enemy backstory: " << m_enemy->m_backstory->m_backstory << std::endl;
+  std::cout << "Enemy motivation: " << m_enemy->m_motivation->m_motivation << std::endl;
+  std::cout << "Enemy description: " << m_enemy->m_description << std::endl;
+  std::cout << "--------------------------------------------------" << std::endl;
+
+  std::cout << "Friend backstory: " << m_friend->m_backstory->m_backstory << std::endl;
+  std::cout << "Friend motivation: " << m_friend->m_motivation->m_motivation << std::endl;
+  std::cout << "Friend description: " << m_friend->m_description << std::endl;
+  std::cout << "--------------------------------------------------" << std::endl;
 
   std::cout << std::endl;
 };

@@ -16,6 +16,7 @@ class HairStyle {
 class HairStyles {
   public:
     HairStyles();
+    ~HairStyles();
 
     std::vector<HairStyle*> m_hairStyles;
 };

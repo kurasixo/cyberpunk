@@ -32,3 +32,10 @@ ClothesItems::ClothesItems() {
     BagLadyChic
   };
 }
+
+ClothesItems::~ClothesItems() {
+  for (Clothes* ptr: m_clothesItems) {
+    delete ptr;
+    ptr = nullptr;
+  }
+}

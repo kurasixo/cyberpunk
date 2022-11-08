@@ -56,60 +56,39 @@ BackStory::BackStory(Dice* dice) {
     "On a Corporate controlled Farm or Research Facility"
   };
 
-  m_backstory = this->generateStory(dice);
+  this->generateStory(dice);
 };
 
-std::string BackStory::generateStory(Dice* dice) {
-  std::string result = "";
-
-  std::string familyRanking = this->generateFamilyRanking(dice);
+void BackStory::generateStory(Dice* dice) {
+  m_familyRanking = this->generateFamilyRanking(dice);
   bool isDead = this->generateParents(dice);
 
   if (isDead) {
-    std::string parentsStatus = "Something has happened to one or both parents";
-    std::string parentsTragedy = this->generateParentsTragedy(dice);
-    bool hasTragedyHappened = this->generateFamilyStatus(dice);
-    if (hasTragedyHappened) {
-      std::string familyStatus = "Family status in danger, and you risk losing everything";
-      std::string familyTragedy = this->generateFamilyTragedy(dice);
-      std::string childHoodEnv = this->generateChildhoodEnv(dice);
-
-      return "Family Ranking: " + familyRanking +
-        "; Parents Status: " + parentsStatus +
-        "; Parents Tragedy: " + parentsTragedy +
-        "; Family Status: " + familyStatus +
-        "; Family Tragedy:  " + familyTragedy +
-        "; Childhood Enivroment: " + childHoodEnv;
-    } else {
-      std::string familyStatus = "Family status is OK";
-      std::string childHoodEnv = this->generateChildhoodEnv(dice);
-      return "Family Ranking: " + familyRanking +
-        "; Parents Status: " + parentsStatus +
-        "; Parents Tragedy: " + parentsTragedy +
-        "; Family Status: " + familyStatus +
-        "; Childhood Enivroment: " + childHoodEnv;
-    }
+    m_parentsStatus = "Something has happened to one or both parents";
+    m_parentsTragedy = this->generateParentsTragedy(dice);
   } else {
-    std::string parentsStatus = "Both parents are living";
-    bool hasTragedyHappened = this->generateFamilyStatus(dice);
-    if (hasTragedyHappened) {
-      std::string familyStatus = "Family status in danger, and you risk losing everything";
-      std::string familyTragedy = this->generateFamilyTragedy(dice);
-      std::string childHoodEnv = this->generateChildhoodEnv(dice);
-      return "Family Ranking: " + familyRanking +
-        "; Parents Status: " + parentsStatus +
-        "; Family Status: " + familyStatus +
-        "; Family Tragedy:  " + familyTragedy +
-        "; Childhood Enivroment: " + childHoodEnv;
-    } else {
-      std::string familyStatus = "Family status is OK";
-      std::string childHoodEnv = this->generateChildhoodEnv(dice);
-      return "Family Ranking: " + familyRanking +
-        "; Parents Status: " + parentsStatus +
-        "; Family Status: " + familyStatus +
-        "; Childhood Enivroment: " + childHoodEnv;
-    }
+    m_parentsStatus = "Both parents are living";
+    m_parentsTragedy = "";
   }
+
+  bool hasTragedyHappened = this->generateFamilyStatus(dice);
+
+  if (hasTragedyHappened) {
+    m_familyStatus = "Family status in danger, and you risk losing everything";
+    m_familyTragedy = this->generateFamilyTragedy(dice);
+  } else {
+    m_familyStatus = "Family status is OK";
+    m_familyTragedy = "";
+  }
+
+  m_childHoodEnv = this->generateChildhoodEnv(dice);
+
+  m_backstory = "Family Ranking: " + m_familyRanking +
+    "; Parents Status: " + m_parentsStatus +
+    "; Parents Tragedy: " + m_parentsTragedy +
+    "; Family Status: " + m_familyStatus +
+    "; Family Tragedy:  " + m_familyTragedy +
+    "; Childhood Enivroment: " + m_childHoodEnv;
 };
 
 std::string BackStory::generateFamilyRanking(Dice* dice) {

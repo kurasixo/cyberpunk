@@ -34,3 +34,10 @@ Affections::Affections() {
     FingerlessGloves
   };
 };
+
+Affections::~Affections() {
+  for (Affection* ptr: m_affections) {
+    delete ptr;
+    ptr = nullptr;
+  }
+};

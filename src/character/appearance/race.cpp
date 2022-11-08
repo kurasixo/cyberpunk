@@ -33,3 +33,10 @@ Races::Races() {
     European
   };
 }
+
+Races::~Races() {
+  for (Race* ptr: m_races) {
+    delete ptr;
+    ptr = nullptr;
+  }
+}

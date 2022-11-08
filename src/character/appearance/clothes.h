@@ -16,6 +16,7 @@ class Clothes {
 class ClothesItems {
   public:
     ClothesItems();
+    ~ClothesItems();
 
     std::vector<Clothes*> m_clothesItems;
 };

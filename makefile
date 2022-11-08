@@ -274,6 +274,54 @@ src/character/backstory/backstory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/backstory.cpp.s
 .PHONY : src/character/backstory/backstory.cpp.s
 
+src/character/backstory/motivation.o: src/character/backstory/motivation.cpp.o
+.PHONY : src/character/backstory/motivation.o
+
+# target to build an object file
+src/character/backstory/motivation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/motivation.cpp.o
+.PHONY : src/character/backstory/motivation.cpp.o
+
+src/character/backstory/motivation.i: src/character/backstory/motivation.cpp.i
+.PHONY : src/character/backstory/motivation.i
+
+# target to preprocess a source file
+src/character/backstory/motivation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/motivation.cpp.i
+.PHONY : src/character/backstory/motivation.cpp.i
+
+src/character/backstory/motivation.s: src/character/backstory/motivation.cpp.s
+.PHONY : src/character/backstory/motivation.s
+
+# target to generate assembly for a file
+src/character/backstory/motivation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/motivation.cpp.s
+.PHONY : src/character/backstory/motivation.cpp.s
+
+src/character/backstory/relatedPerson.o: src/character/backstory/relatedPerson.cpp.o
+.PHONY : src/character/backstory/relatedPerson.o
+
+# target to build an object file
+src/character/backstory/relatedPerson.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/relatedPerson.cpp.o
+.PHONY : src/character/backstory/relatedPerson.cpp.o
+
+src/character/backstory/relatedPerson.i: src/character/backstory/relatedPerson.cpp.i
+.PHONY : src/character/backstory/relatedPerson.i
+
+# target to preprocess a source file
+src/character/backstory/relatedPerson.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/relatedPerson.cpp.i
+.PHONY : src/character/backstory/relatedPerson.cpp.i
+
+src/character/backstory/relatedPerson.s: src/character/backstory/relatedPerson.cpp.s
+.PHONY : src/character/backstory/relatedPerson.s
+
+# target to generate assembly for a file
+src/character/backstory/relatedPerson.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/relatedPerson.cpp.s
+.PHONY : src/character/backstory/relatedPerson.cpp.s
+
 src/character/character.o: src/character/character.cpp.o
 .PHONY : src/character/character.o
 
@@ -421,6 +469,12 @@ help:
 	@echo "... src/character/backstory/backstory.o"
 	@echo "... src/character/backstory/backstory.i"
 	@echo "... src/character/backstory/backstory.s"
+	@echo "... src/character/backstory/motivation.o"
+	@echo "... src/character/backstory/motivation.i"
+	@echo "... src/character/backstory/motivation.s"
+	@echo "... src/character/backstory/relatedPerson.o"
+	@echo "... src/character/backstory/relatedPerson.i"
+	@echo "... src/character/backstory/relatedPerson.s"
 	@echo "... src/character/character.o"
 	@echo "... src/character/character.i"
 	@echo "... src/character/character.s"

@@ -16,6 +16,7 @@ class Race {
 class Races {
   public:
     Races();
+    ~Races();
 
     std::vector<Race*> m_races;
 };

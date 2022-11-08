@@ -10,6 +10,10 @@
 #include "appearance/clothes.h"
 #include "appearance/hairstyle.h"
 
+#include "backstory/backstory.h"
+#include "backstory/motivation.h"
+#include "backstory/relatedPerson.h"
+
 #include "characterClass.h"
 #include "../dice/dice.h"
 
@@ -38,7 +42,8 @@ class Character {
       std::vector<Ability*>* charecterAbilities,
       std::vector<short unsigned int>* abilitiesPoints
     );
-    ~Character() = default;
+
+    ~Character();
 
     void setStats(
       std::vector<CharacterStat*>* allStats,
@@ -61,12 +66,16 @@ class Character {
     Affection* m_affection;
     CharacterClass* m_charecterClass;
 
+    Friend* m_friend;
+    Enemy* m_enemy;
+
     std::string m_name;
     std::string m_nickname;
     std::map<CharacterStat*, short unsigned int> m_charecterStatsWithPoints;
     std::map<Ability*, short unsigned int> m_charecterAbilitiesWithPoints;
 
-    std::string m_backstory;
+    BackStory* m_backstory;
+    Motivation* m_motivation;
 
     // temp
     void generateRandomName(Dice* dice);
@@ -81,6 +90,10 @@ class Character {
     void generateRandomClothess(Dice* dice, ClothesItems* clothesItems);
 
     void generateRandomCharecterBackStory(Dice* dice);
+    void generateRandomCharecterMotivation(Dice* dice);
+
+    void generateRandomEnemy(Dice* dice);
+    void generateRandomFriend(Dice* dice);
 };
 
 #endif

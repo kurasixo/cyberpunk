@@ -5,15 +5,25 @@
 #include <vector>
 #include "../../dice/dice.h"
 
-class BackStory {
+class BackStory final {
   public:
     BackStory(Dice* dice);
     ~BackStory() = default;
 
-    std::string generateStory(Dice* dice);
     std::string m_backstory;
 
+    std::string m_familyRanking;
+    std::string m_familyStatus;
+    std::string m_familyTragedy;
+
+    std::string m_parentsStatus;
+    std::string m_parentsTragedy;
+
+    std::string m_childHoodEnv;
+
   private:
+    void generateStory(Dice* dice);
+
     std::string generateFamilyRanking(Dice* dice);
     std::string generateParentsTragedy(Dice* dice);
     bool generateParents(Dice* dice);
