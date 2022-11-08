@@ -10,7 +10,7 @@ class Motivation final {
     Motivation(Dice* dice);
     ~Motivation() = default;
 
-    std::string m_motivation;
+    std::string m_description;
     std::string m_personalTrait;
     std::string m_valuablePerson;
     std::string m_valuableThing;

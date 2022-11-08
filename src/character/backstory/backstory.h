@@ -10,7 +10,7 @@ class BackStory final {
     BackStory(Dice* dice);
     ~BackStory() = default;
 
-    std::string m_backstory;
+    std::string m_description;
 
     std::string m_familyRanking;
     std::string m_familyStatus;

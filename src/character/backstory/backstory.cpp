@@ -83,7 +83,7 @@ void BackStory::generateStory(Dice* dice) {
 
   m_childHoodEnv = this->generateChildhoodEnv(dice);
 
-  m_backstory = "Family Ranking: " + m_familyRanking +
+  m_description = "Family Ranking: " + m_familyRanking +
     "; Parents Status: " + m_parentsStatus +
     "; Parents Tragedy: " + m_parentsTragedy +
     "; Family Status: " + m_familyStatus +

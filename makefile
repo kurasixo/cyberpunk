@@ -130,6 +130,30 @@ cyberpunk_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/build
 .PHONY : cyberpunk_app/fast
 
+src/actions/action.o: src/actions/action.cpp.o
+.PHONY : src/actions/action.o
+
+# target to build an object file
+src/actions/action.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/actions/action.cpp.o
+.PHONY : src/actions/action.cpp.o
+
+src/actions/action.i: src/actions/action.cpp.i
+.PHONY : src/actions/action.i
+
+# target to preprocess a source file
+src/actions/action.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/actions/action.cpp.i
+.PHONY : src/actions/action.cpp.i
+
+src/actions/action.s: src/actions/action.cpp.s
+.PHONY : src/actions/action.s
+
+# target to generate assembly for a file
+src/actions/action.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/actions/action.cpp.s
+.PHONY : src/actions/action.cpp.s
+
 src/character/ability.o: src/character/ability.cpp.o
 .PHONY : src/character/ability.o
 
@@ -451,6 +475,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cyberpunk_app"
+	@echo "... src/actions/action.o"
+	@echo "... src/actions/action.i"
+	@echo "... src/actions/action.s"
 	@echo "... src/character/ability.o"
 	@echo "... src/character/ability.i"
 	@echo "... src/character/ability.s"

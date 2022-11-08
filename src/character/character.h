@@ -16,6 +16,7 @@
 
 #include "characterClass.h"
 #include "../dice/dice.h"
+#include "../actions/action.h"
 
 
 class Character {
@@ -49,15 +50,16 @@ class Character {
       std::vector<CharacterStat*>* allStats,
       std::vector<short unsigned int>* statsPoints
     );
+
     void setAbilities(
       std::vector<Ability*>* charecterAbilities,
       std::vector<short unsigned int>* abilitiesPoints
     );
 
-    bool statRoll(Ability*);
-    bool abilityRoll(CharacterStat*);
-
     void print();
+
+    bool checkActionRoll(Action* action, unsigned short int rolledValue);
+    bool checkActionRollInBetween(Action* action, unsigned short int rolledValue);
 
   private:
     Race* m_race;
@@ -77,7 +79,6 @@ class Character {
     BackStory* m_backstory;
     Motivation* m_motivation;
 
-    // temp
     void generateRandomName(Dice* dice);
 
     void generateRandomCharecterClass(Dice* dice, CharacterClasses* charClasses);
@@ -94,6 +95,9 @@ class Character {
 
     void generateRandomEnemy(Dice* dice);
     void generateRandomFriend(Dice* dice);
+
+    bool statCheck(CharacterStat* stat, unsigned short int rolledValue, unsigned short int difficulty);
+    bool abilityCheck(Ability* ability, unsigned short int rolledValue, unsigned short int difficulty);
 };
 
 #endif

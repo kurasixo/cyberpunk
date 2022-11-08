@@ -185,21 +185,64 @@ void Character::print() {
   std::cout << "Clothes: " << m_clothes->m_name << std::endl;
   std::cout << "--------------------------------------------------" << std::endl;
 
-  std::cout << "Backstory: " << m_backstory->m_backstory << std::endl;
+  std::cout << "Backstory: " << m_backstory->m_description << std::endl;
   std::cout << "--------------------------------------------------" << std::endl;
 
-  std::cout << "Motivation: " << m_motivation->m_motivation << std::endl;
+  std::cout << "Motivation: " << m_motivation->m_description << std::endl;
   std::cout << "--------------------------------------------------" << std::endl;
 
-  std::cout << "Enemy backstory: " << m_enemy->m_backstory->m_backstory << std::endl;
-  std::cout << "Enemy motivation: " << m_enemy->m_motivation->m_motivation << std::endl;
+  std::cout << "Enemy backstory: " << m_enemy->m_backstory->m_description << std::endl;
+  std::cout << "Enemy motivation: " << m_enemy->m_motivation->m_description << std::endl;
   std::cout << "Enemy description: " << m_enemy->m_description << std::endl;
   std::cout << "--------------------------------------------------" << std::endl;
 
-  std::cout << "Friend backstory: " << m_friend->m_backstory->m_backstory << std::endl;
-  std::cout << "Friend motivation: " << m_friend->m_motivation->m_motivation << std::endl;
+  std::cout << "Friend backstory: " << m_friend->m_backstory->m_description << std::endl;
+  std::cout << "Friend motivation: " << m_friend->m_motivation->m_description << std::endl;
   std::cout << "Friend description: " << m_friend->m_description << std::endl;
   std::cout << "--------------------------------------------------" << std::endl;
 
   std::cout << std::endl;
+};
+
+bool Character::checkActionRoll(Action* action, unsigned short int rolledValue) {
+  if (rolledValue == 0) {
+    std::cout << "Smth happened" << std::endl;
+    return false;
+  }
+
+  if (action->m_ability) {
+    return this->abilityCheck(action->m_ability, rolledValue, action->m_difficultyValue);
+  } else {
+    return this->statCheck(action->m_stat, rolledValue, action->m_difficultyValue);
+  }
+}
+
+bool Character::checkActionRollInBetween(Action* action, unsigned short int rolledValue) {
+  if (action->m_ability) {
+    return (
+      m_charecterAbilitiesWithPoints[action->m_ability] > 0 &&
+      m_charecterAbilitiesWithPoints[action->m_ability] <= rolledValue
+    );
+  } else {
+    return (
+      m_charecterStatsWithPoints[action->m_stat] > 0 &&
+      m_charecterStatsWithPoints[action->m_stat] <= rolledValue
+    );
+  }
+}
+
+bool Character::abilityCheck(
+  Ability* ability,
+  unsigned short int rolledValue,
+  unsigned short int difficulty
+) {
+  return m_charecterAbilitiesWithPoints[ability] + rolledValue >= difficulty;
+};
+
+bool Character::statCheck(
+  CharacterStat* stat,
+  unsigned short int rolledValue,
+  unsigned short int difficulty
+) {
+  return m_charecterStatsWithPoints[stat] + rolledValue >= difficulty;
 };

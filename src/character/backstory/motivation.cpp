@@ -78,7 +78,7 @@ void Motivation::generateMotivation(Dice* dice) {
   m_feelingsAboutPeople = this->generateFeelingsAboutPeople(dice);
   m_valuablePossesion = this->generateValuablePossesion(dice);
 
-  m_motivation = "Personal Trait: " + m_personalTrait
+  m_description = "Personal Trait: " + m_personalTrait
     + "; Valuable person: " + m_valuablePerson
     + "; Valuable Thing: " + m_valuableThing
     + "; Feelings about other people: " + m_feelingsAboutPeople
