@@ -113,6 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	$(CMAKE_COMMAND) -P /Users/vadimkurnakov/projects/cyberpunk/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -128,6 +129,198 @@ cyberpunk_app: cmake_check_build_system
 cyberpunk_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/build
 .PHONY : cyberpunk_app/fast
+
+src/character/ability.o: src/character/ability.cpp.o
+.PHONY : src/character/ability.o
+
+# target to build an object file
+src/character/ability.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/ability.cpp.o
+.PHONY : src/character/ability.cpp.o
+
+src/character/ability.i: src/character/ability.cpp.i
+.PHONY : src/character/ability.i
+
+# target to preprocess a source file
+src/character/ability.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/ability.cpp.i
+.PHONY : src/character/ability.cpp.i
+
+src/character/ability.s: src/character/ability.cpp.s
+.PHONY : src/character/ability.s
+
+# target to generate assembly for a file
+src/character/ability.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/ability.cpp.s
+.PHONY : src/character/ability.cpp.s
+
+src/character/appearance/affectations.o: src/character/appearance/affectations.cpp.o
+.PHONY : src/character/appearance/affectations.o
+
+# target to build an object file
+src/character/appearance/affectations.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/affectations.cpp.o
+.PHONY : src/character/appearance/affectations.cpp.o
+
+src/character/appearance/affectations.i: src/character/appearance/affectations.cpp.i
+.PHONY : src/character/appearance/affectations.i
+
+# target to preprocess a source file
+src/character/appearance/affectations.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/affectations.cpp.i
+.PHONY : src/character/appearance/affectations.cpp.i
+
+src/character/appearance/affectations.s: src/character/appearance/affectations.cpp.s
+.PHONY : src/character/appearance/affectations.s
+
+# target to generate assembly for a file
+src/character/appearance/affectations.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/affectations.cpp.s
+.PHONY : src/character/appearance/affectations.cpp.s
+
+src/character/appearance/clothes.o: src/character/appearance/clothes.cpp.o
+.PHONY : src/character/appearance/clothes.o
+
+# target to build an object file
+src/character/appearance/clothes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/clothes.cpp.o
+.PHONY : src/character/appearance/clothes.cpp.o
+
+src/character/appearance/clothes.i: src/character/appearance/clothes.cpp.i
+.PHONY : src/character/appearance/clothes.i
+
+# target to preprocess a source file
+src/character/appearance/clothes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/clothes.cpp.i
+.PHONY : src/character/appearance/clothes.cpp.i
+
+src/character/appearance/clothes.s: src/character/appearance/clothes.cpp.s
+.PHONY : src/character/appearance/clothes.s
+
+# target to generate assembly for a file
+src/character/appearance/clothes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/clothes.cpp.s
+.PHONY : src/character/appearance/clothes.cpp.s
+
+src/character/appearance/hairstyle.o: src/character/appearance/hairstyle.cpp.o
+.PHONY : src/character/appearance/hairstyle.o
+
+# target to build an object file
+src/character/appearance/hairstyle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/hairstyle.cpp.o
+.PHONY : src/character/appearance/hairstyle.cpp.o
+
+src/character/appearance/hairstyle.i: src/character/appearance/hairstyle.cpp.i
+.PHONY : src/character/appearance/hairstyle.i
+
+# target to preprocess a source file
+src/character/appearance/hairstyle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/hairstyle.cpp.i
+.PHONY : src/character/appearance/hairstyle.cpp.i
+
+src/character/appearance/hairstyle.s: src/character/appearance/hairstyle.cpp.s
+.PHONY : src/character/appearance/hairstyle.s
+
+# target to generate assembly for a file
+src/character/appearance/hairstyle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/hairstyle.cpp.s
+.PHONY : src/character/appearance/hairstyle.cpp.s
+
+src/character/appearance/race.o: src/character/appearance/race.cpp.o
+.PHONY : src/character/appearance/race.o
+
+# target to build an object file
+src/character/appearance/race.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/race.cpp.o
+.PHONY : src/character/appearance/race.cpp.o
+
+src/character/appearance/race.i: src/character/appearance/race.cpp.i
+.PHONY : src/character/appearance/race.i
+
+# target to preprocess a source file
+src/character/appearance/race.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/race.cpp.i
+.PHONY : src/character/appearance/race.cpp.i
+
+src/character/appearance/race.s: src/character/appearance/race.cpp.s
+.PHONY : src/character/appearance/race.s
+
+# target to generate assembly for a file
+src/character/appearance/race.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/race.cpp.s
+.PHONY : src/character/appearance/race.cpp.s
+
+src/character/character.o: src/character/character.cpp.o
+.PHONY : src/character/character.o
+
+# target to build an object file
+src/character/character.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/character.cpp.o
+.PHONY : src/character/character.cpp.o
+
+src/character/character.i: src/character/character.cpp.i
+.PHONY : src/character/character.i
+
+# target to preprocess a source file
+src/character/character.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/character.cpp.i
+.PHONY : src/character/character.cpp.i
+
+src/character/character.s: src/character/character.cpp.s
+.PHONY : src/character/character.s
+
+# target to generate assembly for a file
+src/character/character.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/character.cpp.s
+.PHONY : src/character/character.cpp.s
+
+src/character/characterClass.o: src/character/characterClass.cpp.o
+.PHONY : src/character/characterClass.o
+
+# target to build an object file
+src/character/characterClass.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/characterClass.cpp.o
+.PHONY : src/character/characterClass.cpp.o
+
+src/character/characterClass.i: src/character/characterClass.cpp.i
+.PHONY : src/character/characterClass.i
+
+# target to preprocess a source file
+src/character/characterClass.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/characterClass.cpp.i
+.PHONY : src/character/characterClass.cpp.i
+
+src/character/characterClass.s: src/character/characterClass.cpp.s
+.PHONY : src/character/characterClass.s
+
+# target to generate assembly for a file
+src/character/characterClass.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/characterClass.cpp.s
+.PHONY : src/character/characterClass.cpp.s
+
+src/character/stat.o: src/character/stat.cpp.o
+.PHONY : src/character/stat.o
+
+# target to build an object file
+src/character/stat.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/stat.cpp.o
+.PHONY : src/character/stat.cpp.o
+
+src/character/stat.i: src/character/stat.cpp.i
+.PHONY : src/character/stat.i
+
+# target to preprocess a source file
+src/character/stat.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/stat.cpp.i
+.PHONY : src/character/stat.cpp.i
+
+src/character/stat.s: src/character/stat.cpp.s
+.PHONY : src/character/stat.s
+
+# target to generate assembly for a file
+src/character/stat.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/stat.cpp.s
+.PHONY : src/character/stat.cpp.s
 
 src/dice/dice.o: src/dice/dice.cpp.o
 .PHONY : src/dice/dice.o
@@ -186,6 +379,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cyberpunk_app"
+	@echo "... src/character/ability.o"
+	@echo "... src/character/ability.i"
+	@echo "... src/character/ability.s"
+	@echo "... src/character/appearance/affectations.o"
+	@echo "... src/character/appearance/affectations.i"
+	@echo "... src/character/appearance/affectations.s"
+	@echo "... src/character/appearance/clothes.o"
+	@echo "... src/character/appearance/clothes.i"
+	@echo "... src/character/appearance/clothes.s"
+	@echo "... src/character/appearance/hairstyle.o"
+	@echo "... src/character/appearance/hairstyle.i"
+	@echo "... src/character/appearance/hairstyle.s"
+	@echo "... src/character/appearance/race.o"
+	@echo "... src/character/appearance/race.i"
+	@echo "... src/character/appearance/race.s"
+	@echo "... src/character/character.o"
+	@echo "... src/character/character.i"
+	@echo "... src/character/character.s"
+	@echo "... src/character/characterClass.o"
+	@echo "... src/character/characterClass.i"
+	@echo "... src/character/characterClass.s"
+	@echo "... src/character/stat.o"
+	@echo "... src/character/stat.i"
+	@echo "... src/character/stat.s"
 	@echo "... src/dice/dice.o"
 	@echo "... src/dice/dice.i"
 	@echo "... src/dice/dice.s"
@@ -203,6 +420,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /Users/vadimkurnakov/projects/cyberpunk/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,28 +1,39 @@
 #include "dice/dice.h"
+#include "character/character.h"
 #include <string>
 #include <iostream>
 
 
 int main() {
   Dice* dice = new Dice;
+  CharacterStats* charStats = new CharacterStats();
+  Abilities* charAbilities = new Abilities(charStats);
+  CharacterClasses* charClasses = new CharacterClasses(charAbilities);
 
-  int range = 5;
-  int from = 5;
-  int to = 10;
-  int amount = 2;
+  Races* races = new Races();
+  ClothesItems* clothesItems = new ClothesItems();
+  HairStyles* hairStyles = new HairStyles();
+  Affections* affactions = new Affections();
 
-  std::cout << dice << std::endl;
+  Character* npc = new Character(
+    dice, charStats, charAbilities, charClasses, races, clothesItems, hairStyles, affactions);
 
-  std::cout << dice->roll() << std::endl;
-  std::cout << dice->roll(range) << std::endl;
-  std::cout << dice->roll(from, to) << std::endl;
-  std::cout << "------------" << std::endl;
-  std::cout << dice->rollMany(amount) << std::endl;
-  std::cout << dice->rollMany(amount, range) << std::endl;
-  std::cout << dice->rollMany(amount, from, to) << std::endl;
+  npc->print();
 
   delete dice;
   dice = nullptr;
+
+  delete npc;
+  npc = nullptr;
+
+  delete charAbilities;
+  charAbilities = nullptr;
+
+  delete charStats;
+  charStats = nullptr;
+
+  delete charClasses;
+  charClasses = nullptr;
 
   return 0;
 }

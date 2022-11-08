@@ -8,10 +8,10 @@
 using T = short unsigned int;
 class Dice final {
   private:
-    std::vector<short unsigned int>* m_ArrayPtr;
+    std::vector<T>* m_ArrayPtr;
 
   public:
-    Dice() = default;
+    Dice();
     ~Dice();
 
     T roll();
