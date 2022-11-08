@@ -250,6 +250,30 @@ src/character/appearance/race.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/appearance/race.cpp.s
 .PHONY : src/character/appearance/race.cpp.s
 
+src/character/backstory/backstory.o: src/character/backstory/backstory.cpp.o
+.PHONY : src/character/backstory/backstory.o
+
+# target to build an object file
+src/character/backstory/backstory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/backstory.cpp.o
+.PHONY : src/character/backstory/backstory.cpp.o
+
+src/character/backstory/backstory.i: src/character/backstory/backstory.cpp.i
+.PHONY : src/character/backstory/backstory.i
+
+# target to preprocess a source file
+src/character/backstory/backstory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/backstory.cpp.i
+.PHONY : src/character/backstory/backstory.cpp.i
+
+src/character/backstory/backstory.s: src/character/backstory/backstory.cpp.s
+.PHONY : src/character/backstory/backstory.s
+
+# target to generate assembly for a file
+src/character/backstory/backstory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cyberpunk_app.dir/build.make CMakeFiles/cyberpunk_app.dir/src/character/backstory/backstory.cpp.s
+.PHONY : src/character/backstory/backstory.cpp.s
+
 src/character/character.o: src/character/character.cpp.o
 .PHONY : src/character/character.o
 
@@ -394,6 +418,9 @@ help:
 	@echo "... src/character/appearance/race.o"
 	@echo "... src/character/appearance/race.i"
 	@echo "... src/character/appearance/race.s"
+	@echo "... src/character/backstory/backstory.o"
+	@echo "... src/character/backstory/backstory.i"
+	@echo "... src/character/backstory/backstory.s"
 	@echo "... src/character/character.o"
 	@echo "... src/character/character.i"
 	@echo "... src/character/character.s"

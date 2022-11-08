@@ -1,5 +1,6 @@
 #include "dice/dice.h"
 #include "character/character.h"
+#include "character/backstory/backstory.h"
 #include <string>
 #include <iostream>
 

@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "character.h"
+#include "./backstory/backstory.h"
 
 
 Character::Character(
@@ -26,6 +27,7 @@ Character::Character(
   this->generateRandomHairStyle(dice, hairStyles);
   this->generateRandomAffections(dice, affections);
   this->generateRandomClothess(dice, clothesItems);
+  this->generateRandomCharecterBackStory(dice);
 }
 
 Character::Character(
@@ -111,6 +113,14 @@ void Character::generateRandomClothess(Dice* dice, ClothesItems* clothesItems) {
   m_clothes = clothesItems->m_clothesItems.at(dice->roll(clothesItems->m_clothesItems.size()));
 };
 
+void Character::generateRandomCharecterBackStory(Dice* dice) {
+  BackStory* bs = new BackStory(dice);
+  m_backstory = bs->m_backstory;
+
+  delete bs;
+  bs = nullptr;
+};
+
 void Character::print() {
   std::cout << "Name: " << this->m_name << std::endl;
   std::cout << "Class: " << this->m_charecterClass->m_name << std::endl;
@@ -120,16 +130,22 @@ void Character::print() {
     std::cout << " " << pair.first->m_name << ": " << pair.second << ";";
   }
   std::cout << std::endl;
+  std::cout << "--------------------------------------------------" << std::endl;
 
   std::cout << "Abilities:";
   for (auto pair: m_charecterAbilitiesWithPoints) {
     std::cout << " " << pair.first->m_name << ": " << pair.second << ";";;
   }
   std::cout << std::endl;
+  std::cout << "--------------------------------------------------" << std::endl;
+
+  std::cout << "Appearance" << std::endl;
   std::cout << "Race: " << this->m_race->m_name << std::endl;
   std::cout << "Hair Style: " << this->m_hairstyle->m_name << std::endl;
   std::cout << "Affections: " << this->m_affection->m_name << std::endl;
   std::cout << "Clothes: " << this->m_clothes->m_name << std::endl;
+  std::cout << "--------------------------------------------------" << std::endl;
+  std::cout << "Backstory: " << this->m_backstory << std::endl;
 
   std::cout << std::endl;
 };

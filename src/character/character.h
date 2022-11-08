@@ -59,12 +59,14 @@ class Character {
     Clothes* m_clothes;
     HairStyle* m_hairstyle;
     Affection* m_affection;
+    CharacterClass* m_charecterClass;
 
     std::string m_name;
     std::string m_nickname;
-    CharacterClass* m_charecterClass;
     std::map<CharacterStat*, short unsigned int> m_charecterStatsWithPoints;
     std::map<Ability*, short unsigned int> m_charecterAbilitiesWithPoints;
+
+    std::string m_backstory;
 
     // temp
     void generateRandomName(Dice* dice);
@@ -78,7 +80,7 @@ class Character {
     void generateRandomAffections(Dice* dice, Affections* affections);
     void generateRandomClothess(Dice* dice, ClothesItems* clothesItems);
 
-    // std::string generateRandomCharecterBackStory(Dice* dice);
+    void generateRandomCharecterBackStory(Dice* dice);
 };
 
 #endif
